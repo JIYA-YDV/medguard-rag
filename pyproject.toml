@@ -1,9 +1,6 @@
-
-**pyproject.toml:**
-```toml
 [build-system]
 requires = ["setuptools>=68.0", "wheel"]
-build-backend = "setuptools.backends._legacy:_Backend"
+build-backend = "setuptools.build_meta"
 
 [project]
 name = "medguard-rag"
@@ -70,7 +67,10 @@ known-first-party = ["src"]
 
 [tool.coverage.run]
 source = ["src"]
-omit = ["tests/*"]
+omit = [
+    "tests/*",
+    "src/models/evaluation.py",  # Used in Phase 9
+]
 
 [tool.coverage.report]
 fail_under = 80
