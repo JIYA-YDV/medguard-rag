@@ -57,6 +57,18 @@ jobs:
       - name: Run all tests with coverage
         run: pytest --cov=src --cov-report=xml --cov-report=term-missing
 
+            - name: Run unit tests
+        run: pytest tests/unit/ -v --tb=short -m "not slow"
+
+      - name: Run integration tests
+        run: pytest tests/integration/ -v --tb=short -m "not slow"
+
+      - name: Run safety tests
+        run: pytest tests/safety/ -v --tb=short -m "not slow"
+
+      - name: Run all tests with coverage
+        run: pytest -m "not slow" --cov=src --cov-report=xml --cov-report=term-missing
+        
       - name: Upload coverage report
         if: github.ref == 'refs/heads/main'
         uses: codecov/codecov-action@v3
