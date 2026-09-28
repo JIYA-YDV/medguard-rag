@@ -80,7 +80,8 @@ known-first-party = ["src"]
 source = ["src"]
 omit = [
     "tests/*",
-    "src/models/evaluation.py",  # Used in Phase 9
+    "src/models/evaluation.py",
+    "src/ingestion/embedder.py",  # Tested manually; requires model download
 ]
 
 [tool.coverage.report]
