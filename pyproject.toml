@@ -53,6 +53,7 @@ markers = [
     "unit: Unit tests",
     "integration: Integration tests",
     "safety: Safety-critical tests",
+    "slow: Slow tests (downloads models or does heavy computation)",
 ]
 
 [tool.ruff]
