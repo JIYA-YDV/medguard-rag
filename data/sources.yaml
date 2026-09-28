@@ -1,0 +1,37 @@
+# Registry of medical document sources for ingestion
+#
+# Each source has:
+#   - name: unique identifier used in DocumentChunk.source
+#   - base_url: root URL for the source
+#   - license: attribution and usage information
+#   - documents: list of pages to scrape
+#
+# For Phase 2, we use a small curated set (5 documents) to keep
+# ingestion fast and predictable. The full dataset (600-800 docs)
+# will be added in a later expansion.
+
+sources:
+  - name: medlineplus
+    base_url: https://medlineplus.gov
+    license: "Public domain (US National Library of Medicine)"
+    documents:
+      - title: "Ibuprofen"
+        url: https://medlineplus.gov/druginfo/meds/a682159.html
+        category: medication
+      - title: "Acetaminophen"
+        url: https://medlineplus.gov/druginfo/meds/a681004.html
+        category: medication
+      - title: "Aspirin"
+        url: https://medlineplus.gov/druginfo/meds/a682878.html
+        category: medication
+
+  - name: nhs
+    base_url: https://www.nhs.uk
+    license: "Open Government Licence v3.0"
+    documents:
+      - title: "Ibuprofen for adults"
+        url: https://www.nhs.uk/medicines/ibuprofen-for-adults/
+        category: medication
+      - title: "Paracetamol for adults"
+        url: https://www.nhs.uk/medicines/paracetamol-for-adults/
+        category: medication

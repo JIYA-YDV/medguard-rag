@@ -61,6 +61,15 @@ class Settings(BaseSettings):
 
     # --- Evaluation ---
     eval_output_directory: str = "evaluation/results"
+    
+    # --- Ingestion ---
+    raw_data_directory: str = "./data/raw"
+    processed_data_directory: str = "./data/processed"
+    chunks_data_directory: str = "./data/chunks"
+    sources_registry_path: str = "./data/sources.yaml"
+    scraper_user_agent: str = "MedGuard-RAG-Bot/0.1 (Educational Research)"
+    scraper_timeout_seconds: int = Field(default=30, ge=5, le=120)
+    scraper_delay_seconds: float = Field(default=1.0, ge=0.0)
 
     @property
     def is_production(self) -> bool:
